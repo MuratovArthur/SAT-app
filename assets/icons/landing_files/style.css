@@ -1,0 +1,44 @@
+body{
+	background-image: url(https://ouch-cdn.icons8.com/preview/350/e18c17c6-0fd1-4949-8dbb-9449de9c96c5.png);
+	background-size: 30%;
+}
+.image{
+	max-width: 100%;
+}
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.col{
+	padding: 0;
+}
+.col-12{
+	padding: 0;
+}
+.col-6{
+	padding: 0;
+}
+.main{
+	padding: 10%;
+}
+.navbar{
+	background-color: white;
+}
+h1{
+	text-align: center;
+	font-size: 100px;
+	padding: 10%;
+	max-width: 600px;
+}
+p{
+	text-align: center;
+	max-width: 500px;
+	margin: 0 auto;
+}
+nav p {
+	margin: 0;
+	text-decoration: underline;
+}
+.nav-div{
+	max-width: 600px;
+}
