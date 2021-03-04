@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/constants.dart';
 import 'package:meditation_app/screens/vocabulary_level1.dart';
+import 'package:meditation_app/screens/vocabulary_level2.dart';
+import 'package:meditation_app/screens/vocabulary_level3.dart';
+import 'package:meditation_app/screens/vocabulary_level4.dart';
+import 'package:meditation_app/screens/vocabulary_level5.dart';
+import 'package:meditation_app/screens/vocabulary_level6.dart';
+import 'package:meditation_app/screens/vocabulary_level7.dart';
+import 'package:meditation_app/screens/vocabulary_level8.dart';
+import 'package:meditation_app/screens/vocabulary_level9.dart';
+import 'package:meditation_app/screens/vocabulary_level10.dart';
 
 class ReadingDetailsScreen extends StatelessWidget {
   @override
@@ -67,39 +76,102 @@ class ReadingDetailsScreen extends StatelessWidget {
                         ),
                         SeassionCard(
                           text: 'Level 2',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularySecondPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Level 3',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularyThirdPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Level 4',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularyForthPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Level 5',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularyFifthPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Level 6',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularySixthPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Level 7',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularySeventhPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Level 8',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularyEighthPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Level 9',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularyNinethPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Level 10',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return VocabularyTenthPage();
+                              }),
+                            );
+                          },
                         ),
                       ],
                     ),

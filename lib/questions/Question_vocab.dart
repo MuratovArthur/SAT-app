@@ -8,11 +8,9 @@ class Question {
   String optionC;
   String optionD;
   String word;
-  String explanation1;
-  String explanation2;
 
   Question(String q1, String q2, String w, String a, String c, String oA,
-      String oB, String oC, String oD, String e1, String e2) {
+      String oB, String oC, String oD) {
     questionText1 = q1;
     questionText2 = q2;
     word = w;
@@ -22,7 +20,5 @@ class Question {
     optionB = oB;
     optionC = oC;
     optionD = oD;
-    explanation1 = e1;
-    explanation2 = e2;
   }
 }

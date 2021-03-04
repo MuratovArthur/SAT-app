@@ -101,6 +101,20 @@ class _LinearMathPageState extends State<LinearMathPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink.shade300,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Use double click ',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Icon(
+              Icons.check_circle,
+            )
+          ],
+        ),
       ),
       backgroundColor: Colors.white,
       body: Column(

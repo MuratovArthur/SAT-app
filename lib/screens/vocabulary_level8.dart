@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:meditation_app/questions/vocab1_brain.dart';
+import 'package:meditation_app/questions/vocab8_brain.dart';
 
 VocabularyBank vocabularyBrain = VocabularyBank();
 
-class VocabularyFirstPage extends StatefulWidget {
+class VocabularyEighthPage extends StatefulWidget {
   @override
-  _VocabularyFirstPageState createState() => _VocabularyFirstPageState();
+  _VocabularyEighthPageState createState() => _VocabularyEighthPageState();
 }
 
-class _VocabularyFirstPageState extends State<VocabularyFirstPage> {
+class _VocabularyEighthPageState extends State<VocabularyEighthPage> {
   List<Icon> scoreKeeper = [];
   int score = 0;
   int length = vocabularyBrain.getLength();
@@ -99,6 +99,7 @@ class _VocabularyFirstPageState extends State<VocabularyFirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orangeAccent,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -113,7 +114,6 @@ class _VocabularyFirstPageState extends State<VocabularyFirstPage> {
             )
           ],
         ),
-        backgroundColor: Colors.orangeAccent,
         actions: <Widget>[
           Padding(
               padding: EdgeInsets.only(right: 20.0),

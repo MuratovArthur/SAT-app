@@ -1,0 +1,145 @@
+import 'Question_vocab.dart';
+
+class VocabularyBank {
+  int questionNumber = 0;
+  List<Question> introQuestionBank = [
+    Question(
+        r'This new study is one of the first to ever broach and demonstrate this ',
+        r' in humans.',
+        r'phenomenon',
+        'D',
+        null,
+        r'stewardship',
+        r'fervor',
+        r'contention',
+        r'behavior'),
+    Question(
+        r'Before sharing the budget figures, the CEO presented a calculation of ',
+        r' expenses.',
+        r'aggregate',
+        'D',
+        null,
+        r'uniform and homogeneous',
+        r'unequivocal and absolute',
+        r'adverse and pernicious',
+        r'combined from different resources'),
+    Question(
+        r'It seems reasonable to assume a ',
+        r' between wealth and entrepreneurship.',
+        r'correlation',
+        'A',
+        null,
+        r'connection',
+        r'causation',
+        r'enigma',
+        r'hurdle'),
+    Question(
+        r'A small percentage of the population can call themselves ',
+        r' responsible.',
+        r'fiscally',
+        'A',
+        null,
+        r'financially',
+        r'personally',
+        r'tenaciously',
+        r'amiably'),
+    Question(
+        r'Premium brands and imported grocery items may flourish, too, as people grow more ',
+        r'.',
+        r'affluent',
+        'C',
+        null,
+        r'earnest',
+        r'vulnerable',
+        r'wealthy',
+        r'erratic'),
+    Question(
+        r'They removed an ',
+        r' section of DNA from mice, then tracked what happened.',
+        r'analogous',
+        'A',
+        null,
+        r'parallel',
+        r'identical',
+        r'celestial',
+        r'compassionate'),
+    Question(
+        r'In this mechanism, the second trigger arrests the ',
+        r' of iodine created by the initial trigger.',
+        r'surge',
+        'B',
+        null,
+        r'search',
+        r'flow',
+        r'occurrence',
+        r'advent'),
+    Question(
+        r'A disconcerting memo ',
+        r' in legislative language has been circulating in the Capitol.',
+        r'couched',
+        'B',
+        null,
+        r'hidden',
+        r'expressed',
+        r'unsettled',
+        r'troubled'),
+    Question(
+        r'The compound cured mice, but it was ',
+        r' because it also made mice lose weight rapidly.',
+        r'shelved',
+        'C',
+        null,
+        r'placed',
+        r'managed',
+        r'rejected',
+        r'lamented'),
+    Question(
+        r'She insisted on being served first with the ',
+        r' of someone who just received a prestigious award.',
+        r'air',
+        'C',
+        null,
+        r'atmosphere',
+        r'absence',
+        r'demeanor',
+        r'melody'),
+    Question(
+        r'Given the disruptive ',
+        r' of their business, I am not surprised to see them dominate the market six months after inception.',
+        r'nature',
+        'B',
+        null,
+        r'physical world',
+        r'character',
+        r'role',
+        r'physical force'),
+    Question(
+        r'The picture was later ',
+        r' and even colored for various propaganda versions.',
+        r'doctored',
+        'C',
+        null,
+        r'cured',
+        r'alleviated',
+        r'altered',
+        r'mused'),
+    Question(
+        r'Risky situations emerge when new drivers don’t follow ',
+        r' directions.',
+        r'prescribed',
+        'B',
+        null,
+        r'suggested by a doctor',
+        r'ordered',
+        r'entreated',
+        r'implored'),
+  ];
+
+  int getLength() {
+    return introQuestionBank.length;
+  }
+
+  void reset() {
+    questionNumber = 0;
+  }
+}

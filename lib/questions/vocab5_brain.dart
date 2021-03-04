@@ -1,0 +1,145 @@
+import 'Question_vocab.dart';
+
+class VocabularyBank {
+  int questionNumber = 0;
+  List<Question> introQuestionBank = [
+    Question(
+        r'After the lab testing, the water was found to be ',
+        r' and town citizens were allowed to drink tap water.',
+        r'uncontaminated',
+        'B',
+        null,
+        r'compromised',
+        r'clean',
+        r'equivocal',
+        r'malevolent'),
+    Question(
+        r'Stephen seems like a ',
+        r' contender, and may be the one to crack the top three.',
+        r'viable',
+        'A',
+        null,
+        r'reasonable',
+        r'incongruous',
+        r'formidable',
+        r'dubious'),
+    Question(
+        r'Tanner’s work is now referred to as biased, scientifically ',
+        r', and unfair.',
+        r'unsound',
+        'A',
+        null,
+        r'invalid',
+        r'ambiguous',
+        r'endearing',
+        r'authentic'),
+    Question(
+        r'They are also very numerous in terms of species, though much less ',
+        r'.',
+        r'conspicuous',
+        'D',
+        null,
+        r'onerous',
+        r'sinister',
+        r'viable',
+        r'visible'),
+    Question(
+        r'This trial is a ',
+        r' waste that shows that the forecast was impractical.',
+        r'blatant',
+        'D',
+        null,
+        r'yearning',
+        r'inexorable',
+        r'susceptible',
+        r'obvious'),
+    Question(
+        r'This device is crucial to detecting ',
+        r' nuclear tests.',
+        r'clandestine',
+        'B',
+        null,
+        r'scheduled',
+        r'secretive',
+        r'susceptible',
+        r'fabricated'),
+    Question(
+        r'This apparently convincing dogma lacks an ',
+        r' basis.',
+        r'empirical',
+        'A',
+        null,
+        r'experimental',
+        r'equivocal',
+        r'amiable',
+        r'naive'),
+    Question(
+        r'The start of the second stage of the study is ',
+        r' on the success of the first.',
+        r'contingent',
+        'D',
+        null,
+        r'flagrant',
+        r'entrenched',
+        r'susceptible',
+        r'dependent'),
+    Question(
+        r'The ',
+        r' plant also controls erosion and helps trap carbon dioxide in the ground.',
+        r'perennial',
+        'B',
+        null,
+        r'sun-loving',
+        r'enduring',
+        r'short-lived',
+        r'artificial'),
+    Question(
+        r'The cell phone has become a ',
+        r' source of distraction in meetings.',
+        r'perpetual',
+        'D',
+        null,
+        r'restless',
+        r'incongruous',
+        r'unreasonable',
+        r'constant'),
+    Question(
+        r'They are so tiny and ',
+        r' that they flash into and out of existence in just a few trillionths of a second.',
+        r'evanescent',
+        'C',
+        null,
+        r'vulnerable',
+        r'flagrant',
+        r'transient',
+        r'solemn'),
+    Question(
+        r'There are many competing theories for how species ',
+        r' and become extinct.',
+        r'diversify',
+        'C',
+        null,
+        r'advent',
+        r'vanquish',
+        r'change',
+        r'condone'),
+    Question(
+        r'Many families moved to suburban districts that were more ',
+        r' and devoid of New York City’s diversity.',
+        r'homogeneous',
+        'D',
+        null,
+        r'fluctuating',
+        r'equivocal',
+        r'candid',
+        r'consistent'),
+  ];
+
+  int getLength() {
+    return introQuestionBank.length;
+  }
+
+  void reset() {
+    questionNumber = 0;
+  }
+}

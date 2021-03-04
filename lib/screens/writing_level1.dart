@@ -100,6 +100,20 @@ class _WritingFirstPageState extends State<WritingFirstPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Use double click ',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Icon(
+              Icons.check_circle,
+            )
+          ],
+        ),
       ),
       backgroundColor: Colors.white,
       body: Column(
