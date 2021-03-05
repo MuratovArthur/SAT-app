@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:meditation_app/questions/vocab7_brain.dart';
+import 'package:meditation_app/questions/writing6_brain.dart';
 
-VocabularyBank vocabularyBrain = VocabularyBank();
+WritingBank writingBrain = WritingBank();
 
-class VocabularySeventhPage extends StatefulWidget {
+class WritingSixthPage extends StatefulWidget {
   @override
-  _VocabularySeventhPageState createState() => _VocabularySeventhPageState();
+  _WritingSixthPageState createState() => _WritingSixthPageState();
 }
 
-class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
+class _WritingSixthPageState extends State<WritingSixthPage> {
   List<Icon> scoreKeeper = [];
   int score = 0;
-  int length = vocabularyBrain.getLength();
+  int length = writingBrain.getLength();
   int questionNumber = 0;
   int check = 0;
 
   void checkAnswer(String userPickedAnswer) {
-    vocabularyBrain.introQuestionBank[questionNumber].chosenAnswer =
+    writingBrain.introQuestionBank[questionNumber].chosenAnswer =
         userPickedAnswer;
     String correctAnswer =
-        vocabularyBrain.introQuestionBank[questionNumber].questionAnswer;
+        writingBrain.introQuestionBank[questionNumber].questionAnswer;
     check++;
     setState(() {
-      if (questionNumber == vocabularyBrain.introQuestionBank.length - 1) {
+      if (questionNumber == writingBrain.introQuestionBank.length - 1) {
         if (check <= length) {
           if (userPickedAnswer == correctAnswer) {
             score++;
@@ -72,7 +72,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
             ),
           ],
         ).show();
-        vocabularyBrain.reset();
+        writingBrain.reset();
       } else {
         if (userPickedAnswer == correctAnswer) {
           score++;
@@ -80,7 +80,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
             Icons.check,
             color: Colors.green,
           ));
-          vocabularyBrain.introQuestionBank[questionNumber].chosenAnswer =
+          writingBrain.introQuestionBank[questionNumber].chosenAnswer =
               correctAnswer;
         } else {
           scoreKeeper.add(Icon(
@@ -88,7 +88,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
             color: Colors.red,
           ));
         }
-        if (questionNumber < vocabularyBrain.introQuestionBank.length - 1) {
+        if (questionNumber < writingBrain.introQuestionBank.length - 1) {
           questionNumber++;
         }
       }
@@ -105,56 +105,6 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
             style: TextStyle(
               fontWeight: FontWeight.bold,
             )),
-        actions: <Widget>[
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  Alert(
-                    context: context,
-                    title: "Explanation",
-                    style: AlertStyle(
-                        constraints: BoxConstraints.expand(width: 1000)),
-                    content: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          text: "As used in the line above, the word ",
-                          style: TextStyle(
-                              height: 1.2, fontSize: 18, color: Colors.black),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: vocabularyBrain
-                                    .introQuestionBank[questionNumber].word,
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            TextSpan(text: ' most nearly means...'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    // desc: introMathBrain
-                    //     .introQuestionBank[questionNumber].explanation,
-                    buttons: [
-                      DialogButton(
-                        child: Text(
-                          "Close",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context, rootNavigator: true).pop();
-                        },
-                        width: 120,
-                      )
-                    ],
-                  ).show();
-                },
-                child: Icon(
-                  Icons.wb_incandescent,
-                  size: 26.0,
-                ),
-              )),
-        ],
       ),
       backgroundColor: Colors.white,
       body: Column(
@@ -167,7 +117,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
               padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
               // child: Center(
               // child: TeXView(
-              //   child: TeXViewDocument(vocabularyBrain
+              //   child: TeXViewDocument(writingBrain
               //       .introQuestionBank[questionNumber].questionText),
               //   style: TeXViewStyle(
               //     textAlign: TeXViewTextAlign.Center,
@@ -181,17 +131,17 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: vocabularyBrain
+                    text: writingBrain
                         .introQuestionBank[questionNumber].questionText1,
                     style: TextStyle(
                         height: 1.2, fontSize: 18, color: Colors.black),
                     children: <TextSpan>[
                       TextSpan(
-                          text: vocabularyBrain
+                          text: writingBrain
                               .introQuestionBank[questionNumber].word,
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       TextSpan(
-                          text: vocabularyBrain
+                          text: writingBrain
                               .introQuestionBank[questionNumber].questionText2),
                     ],
                   ),
@@ -219,7 +169,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       '(A) ' +
-                          vocabularyBrain
+                          writingBrain
                               .introQuestionBank[questionNumber].optionA,
                       style: TextStyle(
                         color: Colors.black,
@@ -253,7 +203,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       '(B) ' +
-                          vocabularyBrain
+                          writingBrain
                               .introQuestionBank[questionNumber].optionB,
                       style: TextStyle(
                         color: Colors.black,
@@ -287,7 +237,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       '(C) ' +
-                          vocabularyBrain
+                          writingBrain
                               .introQuestionBank[questionNumber].optionC,
                       style: TextStyle(
                         color: Colors.black,
@@ -321,7 +271,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       '(D) ' +
-                          vocabularyBrain
+                          writingBrain
                               .introQuestionBank[questionNumber].optionD,
                       style: TextStyle(
                         color: Colors.black,
@@ -405,8 +355,8 @@ class _ReviewPageState extends State<ReviewPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => colorCheck(
-        vocabularyBrain.introQuestionBank[questionNumber].questionAnswer,
-        vocabularyBrain.introQuestionBank[questionNumber].chosenAnswer));
+        writingBrain.introQuestionBank[questionNumber].questionAnswer,
+        writingBrain.introQuestionBank[questionNumber].chosenAnswer));
   }
 
   Color AButton = Colors.white;
@@ -501,17 +451,17 @@ class _ReviewPageState extends State<ReviewPage> {
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
-                        text: vocabularyBrain
+                        text: writingBrain
                             .introQuestionBank[questionNumber].questionText1,
                         style: TextStyle(
                             height: 1.2, fontSize: 18, color: Colors.black),
                         children: <TextSpan>[
                           TextSpan(
-                              text: vocabularyBrain
+                              text: writingBrain
                                   .introQuestionBank[questionNumber].word,
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           TextSpan(
-                              text: vocabularyBrain
+                              text: writingBrain
                                   .introQuestionBank[questionNumber]
                                   .questionText2),
                         ],
@@ -536,7 +486,7 @@ class _ReviewPageState extends State<ReviewPage> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         '(A) ' +
-                            vocabularyBrain
+                            writingBrain
                                 .introQuestionBank[questionNumber].optionA,
                         style: TextStyle(
                           color: Colors.black,
@@ -563,7 +513,7 @@ class _ReviewPageState extends State<ReviewPage> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         '(B) ' +
-                            vocabularyBrain
+                            writingBrain
                                 .introQuestionBank[questionNumber].optionB,
                         style: TextStyle(
                           color: Colors.black,
@@ -590,7 +540,7 @@ class _ReviewPageState extends State<ReviewPage> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         '(C) ' +
-                            vocabularyBrain
+                            writingBrain
                                 .introQuestionBank[questionNumber].optionC,
                         style: TextStyle(
                           color: Colors.black,
@@ -617,7 +567,7 @@ class _ReviewPageState extends State<ReviewPage> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         '(D) ' +
-                            vocabularyBrain
+                            writingBrain
                                 .introQuestionBank[questionNumber].optionD,
                         style: TextStyle(
                           color: Colors.black,
@@ -638,7 +588,7 @@ class _ReviewPageState extends State<ReviewPage> {
                       onPressed: () {
                         setState(() {
                           if (questionNumber <
-                              vocabularyBrain.introQuestionBank.length - 1) {
+                              writingBrain.introQuestionBank.length - 1) {
                             questionNumber++;
                           } else {
                             Alert(
@@ -665,9 +615,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           }
                           resetColor();
                           colorCheck(
-                              vocabularyBrain.introQuestionBank[questionNumber]
+                              writingBrain.introQuestionBank[questionNumber]
                                   .questionAnswer,
-                              vocabularyBrain.introQuestionBank[questionNumber]
+                              writingBrain.introQuestionBank[questionNumber]
                                   .chosenAnswer);
                         });
                       },
@@ -690,9 +640,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           }
                           resetColor();
                           colorCheck(
-                              vocabularyBrain.introQuestionBank[questionNumber]
+                              writingBrain.introQuestionBank[questionNumber]
                                   .questionAnswer,
-                              vocabularyBrain.introQuestionBank[questionNumber]
+                              writingBrain.introQuestionBank[questionNumber]
                                   .chosenAnswer);
                         });
                       },

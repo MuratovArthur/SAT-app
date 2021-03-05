@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:meditation_app/questions/vocab7_brain.dart';
+import 'package:meditation_app/questions/math3_brain.dart';
+import 'package:flutter_tex/flutter_tex.dart';
 
-VocabularyBank vocabularyBrain = VocabularyBank();
+MathBank mathBrain = MathBank();
 
-class VocabularySeventhPage extends StatefulWidget {
+class PolynomialMathPage extends StatefulWidget {
   @override
-  _VocabularySeventhPageState createState() => _VocabularySeventhPageState();
+  _PolynomialMathPageState createState() => _PolynomialMathPageState();
 }
 
-class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
+class _PolynomialMathPageState extends State<PolynomialMathPage> {
   List<Icon> scoreKeeper = [];
   int score = 0;
-  int length = vocabularyBrain.getLength();
+  int length = mathBrain.getLength();
   int questionNumber = 0;
   int check = 0;
 
   void checkAnswer(String userPickedAnswer) {
-    vocabularyBrain.introQuestionBank[questionNumber].chosenAnswer =
-        userPickedAnswer;
+    mathBrain.introQuestionBank[questionNumber].chosenAnswer = userPickedAnswer;
     String correctAnswer =
-        vocabularyBrain.introQuestionBank[questionNumber].questionAnswer;
+        mathBrain.introQuestionBank[questionNumber].questionAnswer;
     check++;
     setState(() {
-      if (questionNumber == vocabularyBrain.introQuestionBank.length - 1) {
+      if (questionNumber == mathBrain.introQuestionBank.length - 1) {
         if (check <= length) {
           if (userPickedAnswer == correctAnswer) {
             score++;
@@ -72,7 +72,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
             ),
           ],
         ).show();
-        vocabularyBrain.reset();
+        mathBrain.reset();
       } else {
         if (userPickedAnswer == correctAnswer) {
           score++;
@@ -80,7 +80,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
             Icons.check,
             color: Colors.green,
           ));
-          vocabularyBrain.introQuestionBank[questionNumber].chosenAnswer =
+          mathBrain.introQuestionBank[questionNumber].chosenAnswer =
               correctAnswer;
         } else {
           scoreKeeper.add(Icon(
@@ -88,7 +88,7 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
             color: Colors.red,
           ));
         }
-        if (questionNumber < vocabularyBrain.introQuestionBank.length - 1) {
+        if (questionNumber < mathBrain.introQuestionBank.length - 1) {
           questionNumber++;
         }
       }
@@ -99,62 +99,12 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orangeAccent,
         centerTitle: true,
+        backgroundColor: Colors.pink.shade300,
         title: Text('Use double click',
             style: TextStyle(
               fontWeight: FontWeight.bold,
             )),
-        actions: <Widget>[
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  Alert(
-                    context: context,
-                    title: "Explanation",
-                    style: AlertStyle(
-                        constraints: BoxConstraints.expand(width: 1000)),
-                    content: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          text: "As used in the line above, the word ",
-                          style: TextStyle(
-                              height: 1.2, fontSize: 18, color: Colors.black),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: vocabularyBrain
-                                    .introQuestionBank[questionNumber].word,
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            TextSpan(text: ' most nearly means...'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    // desc: introMathBrain
-                    //     .introQuestionBank[questionNumber].explanation,
-                    buttons: [
-                      DialogButton(
-                        child: Text(
-                          "Close",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context, rootNavigator: true).pop();
-                        },
-                        width: 120,
-                      )
-                    ],
-                  ).show();
-                },
-                child: Icon(
-                  Icons.wb_incandescent,
-                  size: 26.0,
-                ),
-              )),
-        ],
       ),
       backgroundColor: Colors.white,
       body: Column(
@@ -164,38 +114,24 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
           Expanded(
             flex: 5,
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-              // child: Center(
-              // child: TeXView(
-              //   child: TeXViewDocument(vocabularyBrain
-              //       .introQuestionBank[questionNumber].questionText),
-              //   style: TeXViewStyle(
-              //     textAlign: TeXViewTextAlign.Center,
-              //     height: 200,
-              //     //fontSize: 22,
-              //     //fontFamily: 'Cairo',
-              //     // fontWeight: FontWeight.bold
-              //   ),
-              // ),
+              padding: EdgeInsets.all(20.0),
               child: Center(
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    text: vocabularyBrain
-                        .introQuestionBank[questionNumber].questionText1,
-                    style: TextStyle(
-                        height: 1.2, fontSize: 18, color: Colors.black),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: vocabularyBrain
-                              .introQuestionBank[questionNumber].word,
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      TextSpan(
-                          text: vocabularyBrain
-                              .introQuestionBank[questionNumber].questionText2),
-                    ],
+                child: TeXView(
+                  child: TeXViewDocument(
+                      mathBrain.introQuestionBank[questionNumber].questionText),
+                  style: TeXViewStyle(
+                    textAlign: TeXViewTextAlign.Center,
                   ),
                 ),
+                // Text(
+                //   mathBrain.introQuestionBank[questionNumber].questionText,
+                //   textAlign: TextAlign.center,
+                //   style: TextStyle(
+                //       height: 1.2,
+                //       fontSize: 22,
+                //       fontFamily: 'Cairo',
+                //       fontWeight: FontWeight.bold),
+                // ),
               ),
             ),
           ),
@@ -215,16 +151,15 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                       width: 2.0,
                     ),
                   ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
+                  child: TeXView(
+                    child: TeXViewDocument(
                       '(A) ' +
-                          vocabularyBrain
-                              .introQuestionBank[questionNumber].optionA,
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
+                          mathBrain.introQuestionBank[questionNumber].optionA,
                     ),
+                    // style: TextStyle(
+                    //   color: Colors.grey.shade900,
+                    //   fontSize: 20.0,
+                    // ),
                   ),
                   onPressed: () {
                     //The user picked true.
@@ -249,15 +184,10 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                       width: 2.0,
                     ),
                   ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
+                  child: TeXView(
+                    child: TeXViewDocument(
                       '(B) ' +
-                          vocabularyBrain
-                              .introQuestionBank[questionNumber].optionB,
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
+                          mathBrain.introQuestionBank[questionNumber].optionB,
                     ),
                   ),
                   onPressed: () {
@@ -283,19 +213,14 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                       width: 2.0,
                     ),
                   ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
+                  child: TeXView(
+                    child: TeXViewDocument(
                       '(C) ' +
-                          vocabularyBrain
-                              .introQuestionBank[questionNumber].optionC,
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
+                          mathBrain.introQuestionBank[questionNumber].optionC,
                     ),
                   ),
                   onPressed: () {
-                    //The user picked true
+                    //The user picked true.
                   },
                 ),
               ),
@@ -317,15 +242,10 @@ class _VocabularySeventhPageState extends State<VocabularySeventhPage> {
                       width: 2.0,
                     ),
                   ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
+                  child: TeXView(
+                    child: TeXViewDocument(
                       '(D) ' +
-                          vocabularyBrain
-                              .introQuestionBank[questionNumber].optionD,
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
+                          mathBrain.introQuestionBank[questionNumber].optionD,
                     ),
                   ),
                   onPressed: () {
@@ -359,7 +279,7 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.pink.shade300,
       ),
       backgroundColor: Colors.white,
       body: Center(
@@ -405,8 +325,8 @@ class _ReviewPageState extends State<ReviewPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => colorCheck(
-        vocabularyBrain.introQuestionBank[questionNumber].questionAnswer,
-        vocabularyBrain.introQuestionBank[questionNumber].chosenAnswer));
+        mathBrain.introQuestionBank[questionNumber].questionAnswer,
+        mathBrain.introQuestionBank[questionNumber].chosenAnswer));
   }
 
   Color AButton = Colors.white;
@@ -483,7 +403,47 @@ class _ReviewPageState extends State<ReviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.pink.shade300,
+        actions: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Alert(
+                    context: context,
+                    title: "Explanation",
+                    content: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: TeXView(
+                        child: TeXViewDocument(mathBrain
+                            .introQuestionBank[questionNumber].explanation),
+                        style: TeXViewStyle(
+                          textAlign: TeXViewTextAlign.Center,
+                        ),
+                      ),
+                    ),
+                    // desc: mathBrain
+                    //     .introQuestionBank[questionNumber].explanation,
+                    buttons: [
+                      DialogButton(
+                        child: Text(
+                          "Close",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context, rootNavigator: true).pop();
+                        },
+                        width: 120,
+                      )
+                    ],
+                  ).show();
+                },
+                child: Icon(
+                  Icons.wb_incandescent,
+                  size: 26.0,
+                ),
+              )),
+        ],
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -498,25 +458,27 @@ class _ReviewPageState extends State<ReviewPage> {
                 child: Padding(
                   padding: EdgeInsets.all(20.0),
                   child: Center(
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text: vocabularyBrain
-                            .introQuestionBank[questionNumber].questionText1,
-                        style: TextStyle(
-                            height: 1.2, fontSize: 18, color: Colors.black),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: vocabularyBrain
-                                  .introQuestionBank[questionNumber].word,
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          TextSpan(
-                              text: vocabularyBrain
-                                  .introQuestionBank[questionNumber]
-                                  .questionText2),
-                        ],
+                    child: TeXView(
+                      child: TeXViewDocument(mathBrain
+                          .introQuestionBank[questionNumber].questionText),
+                      style: TeXViewStyle(
+                        textAlign: TeXViewTextAlign.Center,
+                        // height: 1,
+                        //fontSize: 22,
+                        //fontFamily: 'Cairo',
+                        // fontWeight: FontWeight.bold
                       ),
                     ),
+                    // child: Text(
+                    //   mathBrain
+                    //       .introQuestionBank[questionNumber].questionText,
+                    //   textAlign: TextAlign.center,
+                    //   style: TextStyle(
+                    //       height: 1.2,
+                    //       fontSize: 18,
+                    //       fontFamily: 'Cairo',
+                    //       fontWeight: FontWeight.bold),
+                    // ),
                   ),
                 ),
               ),
@@ -532,15 +494,10 @@ class _ReviewPageState extends State<ReviewPage> {
                         width: 2.0,
                       ),
                     ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
+                    child: TeXView(
+                      child: TeXViewDocument(
                         '(A) ' +
-                            vocabularyBrain
-                                .introQuestionBank[questionNumber].optionA,
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
+                            mathBrain.introQuestionBank[questionNumber].optionA,
                       ),
                     ),
                     onPressed: () {},
@@ -559,15 +516,10 @@ class _ReviewPageState extends State<ReviewPage> {
                         width: 2.0,
                       ),
                     ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
+                    child: TeXView(
+                      child: TeXViewDocument(
                         '(B) ' +
-                            vocabularyBrain
-                                .introQuestionBank[questionNumber].optionB,
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
+                            mathBrain.introQuestionBank[questionNumber].optionB,
                       ),
                     ),
                     onPressed: () {},
@@ -586,15 +538,10 @@ class _ReviewPageState extends State<ReviewPage> {
                         width: 2.0,
                       ),
                     ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
+                    child: TeXView(
+                      child: TeXViewDocument(
                         '(C) ' +
-                            vocabularyBrain
-                                .introQuestionBank[questionNumber].optionC,
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
+                            mathBrain.introQuestionBank[questionNumber].optionC,
                       ),
                     ),
                     onPressed: () {},
@@ -613,15 +560,10 @@ class _ReviewPageState extends State<ReviewPage> {
                         width: 2.0,
                       ),
                     ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
+                    child: TeXView(
+                      child: TeXViewDocument(
                         '(D) ' +
-                            vocabularyBrain
-                                .introQuestionBank[questionNumber].optionD,
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
+                            mathBrain.introQuestionBank[questionNumber].optionD,
                       ),
                     ),
                     onPressed: () {},
@@ -638,7 +580,7 @@ class _ReviewPageState extends State<ReviewPage> {
                       onPressed: () {
                         setState(() {
                           if (questionNumber <
-                              vocabularyBrain.introQuestionBank.length - 1) {
+                              mathBrain.introQuestionBank.length - 1) {
                             questionNumber++;
                           } else {
                             Alert(
@@ -665,9 +607,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           }
                           resetColor();
                           colorCheck(
-                              vocabularyBrain.introQuestionBank[questionNumber]
+                              mathBrain.introQuestionBank[questionNumber]
                                   .questionAnswer,
-                              vocabularyBrain.introQuestionBank[questionNumber]
+                              mathBrain.introQuestionBank[questionNumber]
                                   .chosenAnswer);
                         });
                       },
@@ -690,9 +632,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           }
                           resetColor();
                           colorCheck(
-                              vocabularyBrain.introQuestionBank[questionNumber]
+                              mathBrain.introQuestionBank[questionNumber]
                                   .questionAnswer,
-                              vocabularyBrain.introQuestionBank[questionNumber]
+                              mathBrain.introQuestionBank[questionNumber]
                                   .chosenAnswer);
                         });
                       },

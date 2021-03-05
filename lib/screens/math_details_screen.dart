@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/constants.dart';
-import 'package:meditation_app/screens/math1_screen.dart';
+import 'math1_screen.dart';
 import 'math2_screen.dart';
+import 'math3_screen.dart';
+import 'math4_screen.dart';
+import 'math5_screen.dart';
+import 'math6_screen.dart';
+import 'math7_screen.dart';
+import 'math8_screen.dart';
+import 'math9_screen.dart';
+import 'math10_screen.dart';
 
 class MathDetailsScreen extends StatelessWidget {
   @override
@@ -78,35 +86,91 @@ class MathDetailsScreen extends StatelessWidget {
                         ),
                         SeassionCard(
                           text: 'Polynomials, algebraic fractions',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return PolynomialMathPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Quadratic Equations',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return QuadraticMathPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Systems of Equations',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return EquationsMathPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Algebraic Inequalities',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return InequalitiesMathPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Absolute Value Equations',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return AbsoluteMathPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Graphing in the xy-Plane',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return GraphsMathPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Graphing Linear Systems',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return LinearGraphsMathPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Working with Functions',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return FunctionsMathPage();
+                              }),
+                            );
+                          },
                         )
                       ],
                     ),

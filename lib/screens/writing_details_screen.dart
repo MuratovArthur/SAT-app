@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:meditation_app/constants.dart';
 import 'writing_level1.dart';
+import 'writing_level2.dart';
+import 'writing_level3.dart';
+import 'writing_level4.dart';
+import 'writing_level5.dart';
+import 'writing_level6.dart';
+import 'writing_level7.dart';
+import 'writing_level8.dart';
+import 'writing_level9.dart';
+import 'writing_level10.dart';
 
 class WritingDetailsScreen extends StatelessWidget {
   @override
@@ -66,44 +75,103 @@ class WritingDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Style and tone',
-                          press: () {},
+                          text: 'Pronoun agreement',
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingSecondPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
-                          text: 'Syntax',
-                          press: () {},
+                          text: 'Items in a series',
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingThirdPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'End-of-sentence punctuation',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingForthPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Within sentence punctuation',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingFifthPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Sentence boundaries',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingSixthPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Subordination and coordination',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingSeventhPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
                           text: 'Parallel structure',
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingEighthPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
-                          text: 'Modifier placement',
-                          press: () {},
+                          text: 'Shifts in verb and tense',
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingNinethPage();
+                              }),
+                            );
+                          },
                         ),
                         SeassionCard(
-                          text: 'Shifts in verb, tense, and mood',
-                          press: () {},
-                        ),
-                        SeassionCard(
-                          text: 'Pronoun clarity',
-                          press: () {},
+                          text: 'Conventional expression',
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return WritingTenthPage();
+                              }),
+                            );
+                          },
                         ),
                       ],
                     ),

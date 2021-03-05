@@ -1,6 +1,6 @@
 import 'Question_math.dart';
 
-class IntroMathBank {
+class MathBank {
   int questionNumber = 0;
   List<Question> introQuestionBank = [
     Question(

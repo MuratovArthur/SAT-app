@@ -100,20 +100,11 @@ class _VocabularySixthPageState extends State<VocabularySixthPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Use double click ',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Icon(
-              Icons.check_circle,
-            )
-          ],
-        ),
+        centerTitle: true,
+        title: Text('Use double click',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            )),
         actions: <Widget>[
           Padding(
               padding: EdgeInsets.only(right: 20.0),
@@ -471,7 +462,7 @@ class _ReviewPageState extends State<ReviewPage> {
         } else if (choosen == 'C') {
           borderColorCButton = Colors.red;
         } else {
-          borderColorDButton = Colors.red;
+          borderColorAButton = Colors.red;
         }
       }
     });

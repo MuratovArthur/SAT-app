@@ -99,20 +99,11 @@ class _VocabularyFirstPageState extends State<VocabularyFirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Use double click ',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Icon(
-              Icons.check_circle,
-            )
-          ],
-        ),
+        centerTitle: true,
+        title: Text('Use double click',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            )),
         backgroundColor: Colors.orangeAccent,
         actions: <Widget>[
           Padding(
@@ -418,10 +409,6 @@ class _ReviewPageState extends State<ReviewPage> {
         vocabularyBrain.introQuestionBank[questionNumber].chosenAnswer));
   }
 
-  Color AButton = Colors.white;
-  Color BButton = Colors.white;
-  Color CButton = Colors.white;
-  Color DButton = Colors.white;
   Color borderColorAButton = Colors.grey.shade900;
   Color borderColorBButton = Colors.grey.shade900;
   Color borderColorCButton = Colors.grey.shade900;
@@ -462,7 +449,7 @@ class _ReviewPageState extends State<ReviewPage> {
         } else {
           borderColorDButton = Colors.red;
         }
-      } else {
+      } else if (answer == 'D') {
         borderColorDButton = Colors.green;
         if (choosen == 'D') {
           borderColorDButton = Colors.green;
@@ -471,17 +458,13 @@ class _ReviewPageState extends State<ReviewPage> {
         } else if (choosen == 'C') {
           borderColorCButton = Colors.red;
         } else {
-          borderColorDButton = Colors.red;
+          borderColorAButton = Colors.red;
         }
       }
     });
   }
 
   void resetColor() {
-    AButton = Colors.white;
-    BButton = Colors.white;
-    CButton = Colors.white;
-    DButton = Colors.white;
     borderColorAButton = Colors.grey.shade900;
     borderColorBButton = Colors.grey.shade900;
     borderColorCButton = Colors.grey.shade900;
@@ -534,7 +517,6 @@ class _ReviewPageState extends State<ReviewPage> {
                   padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                   child: FlatButton(
                     textColor: Colors.grey.shade900,
-                    color: AButton,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         color: borderColorAButton,
@@ -561,7 +543,6 @@ class _ReviewPageState extends State<ReviewPage> {
                   padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                   child: FlatButton(
                     textColor: Colors.white,
-                    color: BButton,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         color: borderColorBButton,
@@ -588,7 +569,6 @@ class _ReviewPageState extends State<ReviewPage> {
                   padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                   child: FlatButton(
                     textColor: Colors.white,
-                    color: CButton,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         color: borderColorCButton,
@@ -615,7 +595,6 @@ class _ReviewPageState extends State<ReviewPage> {
                   padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                   child: FlatButton(
                     textColor: Colors.white,
-                    color: DButton,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
                         color: borderColorDButton,

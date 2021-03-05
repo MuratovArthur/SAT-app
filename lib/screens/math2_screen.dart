@@ -3,7 +3,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:meditation_app/questions/math2_brain.dart';
 import 'package:flutter_tex/flutter_tex.dart';
 
-LinearMathBank linearMathBrain = LinearMathBank();
+MathBank mathBrain = MathBank();
 
 class LinearMathPage extends StatefulWidget {
   @override
@@ -13,18 +13,17 @@ class LinearMathPage extends StatefulWidget {
 class _LinearMathPageState extends State<LinearMathPage> {
   List<Icon> scoreKeeper = [];
   int score = 0;
-  int length = linearMathBrain.getLength();
+  int length = mathBrain.getLength();
   int questionNumber = 0;
   int check = 0;
 
   void checkAnswer(String userPickedAnswer) {
-    linearMathBrain.introQuestionBank[questionNumber].chosenAnswer =
-        userPickedAnswer;
+    mathBrain.introQuestionBank[questionNumber].chosenAnswer = userPickedAnswer;
     String correctAnswer =
-        linearMathBrain.introQuestionBank[questionNumber].questionAnswer;
+        mathBrain.introQuestionBank[questionNumber].questionAnswer;
     check++;
     setState(() {
-      if (questionNumber == linearMathBrain.introQuestionBank.length - 1) {
+      if (questionNumber == mathBrain.introQuestionBank.length - 1) {
         if (check <= length) {
           if (userPickedAnswer == correctAnswer) {
             score++;
@@ -73,7 +72,7 @@ class _LinearMathPageState extends State<LinearMathPage> {
             ),
           ],
         ).show();
-        linearMathBrain.reset();
+        mathBrain.reset();
       } else {
         if (userPickedAnswer == correctAnswer) {
           score++;
@@ -81,7 +80,7 @@ class _LinearMathPageState extends State<LinearMathPage> {
             Icons.check,
             color: Colors.green,
           ));
-          linearMathBrain.introQuestionBank[questionNumber].chosenAnswer =
+          mathBrain.introQuestionBank[questionNumber].chosenAnswer =
               correctAnswer;
         } else {
           scoreKeeper.add(Icon(
@@ -89,7 +88,7 @@ class _LinearMathPageState extends State<LinearMathPage> {
             color: Colors.red,
           ));
         }
-        if (questionNumber < linearMathBrain.introQuestionBank.length - 1) {
+        if (questionNumber < mathBrain.introQuestionBank.length - 1) {
           questionNumber++;
         }
       }
@@ -101,20 +100,11 @@ class _LinearMathPageState extends State<LinearMathPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink.shade300,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Use double click ',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Icon(
-              Icons.check_circle,
-            )
-          ],
-        ),
+        centerTitle: true,
+        title: Text('Use double click',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            )),
       ),
       backgroundColor: Colors.white,
       body: Column(
@@ -127,14 +117,14 @@ class _LinearMathPageState extends State<LinearMathPage> {
               padding: EdgeInsets.all(20.0),
               child: Center(
                 child: TeXView(
-                  child: TeXViewDocument(linearMathBrain
-                      .introQuestionBank[questionNumber].questionText),
+                  child: TeXViewDocument(
+                      mathBrain.introQuestionBank[questionNumber].questionText),
                   style: TeXViewStyle(
                     textAlign: TeXViewTextAlign.Center,
                   ),
                 ),
                 // Text(
-                //   linearMathBrain.introQuestionBank[questionNumber].questionText,
+                //   mathBrain.introQuestionBank[questionNumber].questionText,
                 //   textAlign: TextAlign.center,
                 //   style: TextStyle(
                 //       height: 1.2,
@@ -164,8 +154,7 @@ class _LinearMathPageState extends State<LinearMathPage> {
                   child: TeXView(
                     child: TeXViewDocument(
                       '(A) ' +
-                          linearMathBrain
-                              .introQuestionBank[questionNumber].optionA,
+                          mathBrain.introQuestionBank[questionNumber].optionA,
                     ),
                     // style: TextStyle(
                     //   color: Colors.grey.shade900,
@@ -198,8 +187,7 @@ class _LinearMathPageState extends State<LinearMathPage> {
                   child: TeXView(
                     child: TeXViewDocument(
                       '(B) ' +
-                          linearMathBrain
-                              .introQuestionBank[questionNumber].optionB,
+                          mathBrain.introQuestionBank[questionNumber].optionB,
                     ),
                   ),
                   onPressed: () {
@@ -228,8 +216,7 @@ class _LinearMathPageState extends State<LinearMathPage> {
                   child: TeXView(
                     child: TeXViewDocument(
                       '(C) ' +
-                          linearMathBrain
-                              .introQuestionBank[questionNumber].optionC,
+                          mathBrain.introQuestionBank[questionNumber].optionC,
                     ),
                   ),
                   onPressed: () {
@@ -258,8 +245,7 @@ class _LinearMathPageState extends State<LinearMathPage> {
                   child: TeXView(
                     child: TeXViewDocument(
                       '(D) ' +
-                          linearMathBrain
-                              .introQuestionBank[questionNumber].optionD,
+                          mathBrain.introQuestionBank[questionNumber].optionD,
                     ),
                   ),
                   onPressed: () {
@@ -293,7 +279,12 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.pink.shade300,
+        title: Text('Use double click',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            )),
       ),
       backgroundColor: Colors.white,
       body: Center(
@@ -339,8 +330,8 @@ class _ReviewPageState extends State<ReviewPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => colorCheck(
-        linearMathBrain.introQuestionBank[questionNumber].questionAnswer,
-        linearMathBrain.introQuestionBank[questionNumber].chosenAnswer));
+        mathBrain.introQuestionBank[questionNumber].questionAnswer,
+        mathBrain.introQuestionBank[questionNumber].chosenAnswer));
   }
 
   Color AButton = Colors.white;
@@ -396,7 +387,7 @@ class _ReviewPageState extends State<ReviewPage> {
         } else if (choosen == 'C') {
           borderColorCButton = Colors.red;
         } else {
-          borderColorDButton = Colors.red;
+          borderColorAButton = Colors.red;
         }
       }
     });
@@ -429,14 +420,14 @@ class _ReviewPageState extends State<ReviewPage> {
                     content: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                       child: TeXView(
-                        child: TeXViewDocument(linearMathBrain
+                        child: TeXViewDocument(mathBrain
                             .introQuestionBank[questionNumber].explanation),
                         style: TeXViewStyle(
                           textAlign: TeXViewTextAlign.Center,
                         ),
                       ),
                     ),
-                    // desc: linearMathBrain
+                    // desc: mathBrain
                     //     .introQuestionBank[questionNumber].explanation,
                     buttons: [
                       DialogButton(
@@ -473,7 +464,7 @@ class _ReviewPageState extends State<ReviewPage> {
                   padding: EdgeInsets.all(20.0),
                   child: Center(
                     child: TeXView(
-                      child: TeXViewDocument(linearMathBrain
+                      child: TeXViewDocument(mathBrain
                           .introQuestionBank[questionNumber].questionText),
                       style: TeXViewStyle(
                         textAlign: TeXViewTextAlign.Center,
@@ -484,7 +475,7 @@ class _ReviewPageState extends State<ReviewPage> {
                       ),
                     ),
                     // child: Text(
-                    //   linearMathBrain
+                    //   mathBrain
                     //       .introQuestionBank[questionNumber].questionText,
                     //   textAlign: TextAlign.center,
                     //   style: TextStyle(
@@ -511,8 +502,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     child: TeXView(
                       child: TeXViewDocument(
                         '(A) ' +
-                            linearMathBrain
-                                .introQuestionBank[questionNumber].optionA,
+                            mathBrain.introQuestionBank[questionNumber].optionA,
                       ),
                     ),
                     onPressed: () {},
@@ -534,8 +524,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     child: TeXView(
                       child: TeXViewDocument(
                         '(B) ' +
-                            linearMathBrain
-                                .introQuestionBank[questionNumber].optionB,
+                            mathBrain.introQuestionBank[questionNumber].optionB,
                       ),
                     ),
                     onPressed: () {},
@@ -557,8 +546,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     child: TeXView(
                       child: TeXViewDocument(
                         '(C) ' +
-                            linearMathBrain
-                                .introQuestionBank[questionNumber].optionC,
+                            mathBrain.introQuestionBank[questionNumber].optionC,
                       ),
                     ),
                     onPressed: () {},
@@ -580,8 +568,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     child: TeXView(
                       child: TeXViewDocument(
                         '(D) ' +
-                            linearMathBrain
-                                .introQuestionBank[questionNumber].optionD,
+                            mathBrain.introQuestionBank[questionNumber].optionD,
                       ),
                     ),
                     onPressed: () {},
@@ -598,7 +585,7 @@ class _ReviewPageState extends State<ReviewPage> {
                       onPressed: () {
                         setState(() {
                           if (questionNumber <
-                              linearMathBrain.introQuestionBank.length - 1) {
+                              mathBrain.introQuestionBank.length - 1) {
                             questionNumber++;
                           } else {
                             Alert(
@@ -625,9 +612,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           }
                           resetColor();
                           colorCheck(
-                              linearMathBrain.introQuestionBank[questionNumber]
+                              mathBrain.introQuestionBank[questionNumber]
                                   .questionAnswer,
-                              linearMathBrain.introQuestionBank[questionNumber]
+                              mathBrain.introQuestionBank[questionNumber]
                                   .chosenAnswer);
                         });
                       },
@@ -650,9 +637,9 @@ class _ReviewPageState extends State<ReviewPage> {
                           }
                           resetColor();
                           colorCheck(
-                              linearMathBrain.introQuestionBank[questionNumber]
+                              mathBrain.introQuestionBank[questionNumber]
                                   .questionAnswer,
-                              linearMathBrain.introQuestionBank[questionNumber]
+                              mathBrain.introQuestionBank[questionNumber]
                                   .chosenAnswer);
                         });
                       },
