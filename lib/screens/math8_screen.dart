@@ -113,15 +113,6 @@ class _GraphsMathPageState extends State<GraphsMathPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
-            flex: 4,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Image(
-                  image: AssetImage(
-                      mathBrain.introQuestionBank[questionNumber].imagePath)),
-            ),
-          ),
-          Expanded(
             flex: 1,
             child: Padding(
               padding: EdgeInsets.all(20.0),

@@ -85,7 +85,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Polynomials, algebraic fractions',
+                          text: 'Equation with more that one variable',
                           press: () {
                             Navigator.push(
                               context,
@@ -96,7 +96,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Quadratic Equations',
+                          text: 'Polynomials, algebraic fractions',
                           press: () {
                             Navigator.push(
                               context,
@@ -107,7 +107,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Systems of Equations',
+                          text: 'Factoring',
                           press: () {
                             Navigator.push(
                               context,
@@ -118,7 +118,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Algebraic Inequalities',
+                          text: 'Quadratic Equations',
                           press: () {
                             Navigator.push(
                               context,
@@ -129,7 +129,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Absolute Value Equations',
+                          text: 'Systems of Equations',
                           press: () {
                             Navigator.push(
                               context,
@@ -140,7 +140,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Graphing in the xy-Plane',
+                          text: 'Algebraic Inequalities',
                           press: () {
                             Navigator.push(
                               context,
@@ -151,7 +151,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Graphing Linear Systems',
+                          text: 'Absolute Value Equations and Inequalities',
                           press: () {
                             Navigator.push(
                               context,
@@ -162,7 +162,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Working with Functions',
+                          text: 'Graphing in the xy-Plane',
                           press: () {
                             Navigator.push(
                               context,
