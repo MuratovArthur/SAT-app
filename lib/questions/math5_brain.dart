@@ -3,7 +3,7 @@ import 'Question_math.dart';
 class MathBank {
   int questionNumber = 0;
   List<Question> introQuestionBank = [
-    Question(r' \(q =\)\(d \over d + n\) On a manufacturer’s assembly line, d parts are found to be defective and n parts are nondefective. The formula above is used to calculate a quality-of-parts ratio. What is d expressed in terms of the other two variables?',
+    Question(r' \(q =\)\(d \over d + n\) On a manufacturer’s assembly line, \(d\) parts are found to be defective and \(n\) parts are nondefective. The formula above is used to calculate a quality-of-parts ratio. What is \(d\) expressed in terms of the other two variables?',
      'B', null,
       r'\(n \over 1 -q\)',
        r'\(nq \over 1 - q\)',
@@ -37,7 +37,7 @@ class MathBank {
        r'\(4(x + 1) \over x - 1\)',
         r'\(4(x^2 + 4x + 1) \over  x^2 - 1\)',
          r'\(4(x + 2) \over x^2 - 1\)',
-          r'Factor the numerator and the denominator of the second fraction: \(4x \ovre x - 1\) \(+\) \(4 \over x - 1\) \(=\) \(4x + 4 \over x - 1\)\(= \)\(4(x + 1) \over x - 1\)'),
+          r'Factor the numerator and the denominator of the second fraction: \(4x \over x - 1\) \(+\) \(4 \over x - 1\) \(=\) \(4x + 4 \over x - 1\)\(= \)\(4(x + 1) \over x - 1\)'),
     Question(r'If \(h =\) \(x^2 - 1 \over x + 1\)\(+\)\(x^2 - 1 \over x - 1\), what is \(x\) in terms of \(h\)?',
      'A', null,
       r'\(h \over 2\)',
@@ -51,7 +51,7 @@ class MathBank {
        r'\(1 \over x + y\)',
         r'\(x - y \over x + y\)',
          r'\(x + y \over x - y\)',
-          r' Collect the terms involving a on one side of the given equation and the terms involving b on the opposite side of the equation: \(ax^2 - ay^2 = bx + by\). Factor each side of the equation: \(a(x^2 - y^2)= b(x + y)\). Devide each side of the equation by \(b\) and \(x^2 - y^2\): \(1 \over x - y\)'),
+          r' Collect the terms involving \(a\) on one side of the given equation and the terms involving \(b\) on the opposite side of the equation: \(ax^2 - ay^2 = bx + by\). Factor each side of the equation: \(a(x^2 - y^2)= b(x + y)\). Devide each side of the equation by \(b\) and \(x^2 - y^2\): \(a \over b\)\(=\) \(1 \over x - y\)'),
     Question(r'If \(a\) is not equal \(b\) and \(a^2 - b^2 \over 9\)\(= a + b\), then what is the value of \(a - b\)?',
      'C', null,
       r'\(1 \over 2\)',
