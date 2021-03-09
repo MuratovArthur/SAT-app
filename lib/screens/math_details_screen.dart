@@ -151,7 +151,7 @@ class MathDetailsScreen extends StatelessWidget {
                           },
                         ),
                         SeassionCard(
-                          text: 'Absolute Value Equations and Inequalities',
+                          text: 'Absolute Value Equations',
                           press: () {
                             Navigator.push(
                               context,

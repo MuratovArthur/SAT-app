@@ -113,35 +113,27 @@ class _FunctionsMathPageState extends State<FunctionsMathPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
-            flex: 4,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Image(
-                  image: AssetImage(
-                      mathBrain.introQuestionBank[questionNumber].imagePath)),
-            ),
-          ),
-          Expanded(
             flex: 5,
             child: Padding(
               padding: EdgeInsets.all(20.0),
-              child: Center(
-                child: TeXView(
-                  child: TeXViewDocument(
-                      mathBrain.introQuestionBank[questionNumber].questionText),
-                  style: TeXViewStyle(
-                    textAlign: TeXViewTextAlign.Center,
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Image(
+                        image: AssetImage(mathBrain
+                            .introQuestionBank[questionNumber].imagePath)),
                   ),
-                ),
-                // Text(
-                //   mathBrain.introQuestionBank[questionNumber].questionText,
-                //   textAlign: TextAlign.center,
-                //   style: TextStyle(
-                //       height: 1.2,
-                //       fontSize: 22,
-                //       fontFamily: 'Cairo',
-                //       fontWeight: FontWeight.bold),
-                // ),
+                  Expanded(
+                    child: TeXView(
+                      child: TeXViewDocument(mathBrain
+                          .introQuestionBank[questionNumber].questionText),
+                      style: TeXViewStyle(
+                        textAlign: TeXViewTextAlign.Center,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

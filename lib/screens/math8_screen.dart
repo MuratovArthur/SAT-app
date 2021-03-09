@@ -113,7 +113,7 @@ class _GraphsMathPageState extends State<GraphsMathPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
-            flex: 1,
+            flex: 5,
             child: Padding(
               padding: EdgeInsets.all(20.0),
               child: Center(
