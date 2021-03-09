@@ -67,7 +67,7 @@ class MathBank {
         r'\(17\)',
         r'Subtract corresponding sides of the two given equations: \(0 + 12 = 3y\); \(12 \over 3\)\(= y\) or \(y = 4\). Since \(y = 4\) and \(x + 3 =5y\), then \((x + 3) = 5(4)= 20\), so \(x = 20 - 3 =17\)'),
     Question(
-        r'If \(1 \over x\)\(+\)\(1 \over y\)\(=\)\(1 \over 4\) and \(1 \over x\)\(-\)\(1 \over y\)\(=\)\(3 \over 4\), then \(x =\)',
+        r'If \(1 \over x\)\(+\)\(1 \over y\)\(=\)\(1 \over 4\) and \(1 \over x\)\(-\)\(1 \over y\)\(=\)\(3 \over 4\), then \(x =\)...',
         'C',
         null,
         r'\(1 \over 4\)',
@@ -94,7 +94,7 @@ class MathBank {
         r'\(4\)',
         r'If \(x \over y\)\(= 6\) and \(x = 36\), then \(36 \over y\)\( = 6\), so \(y = 6\). Since \(y \over w\)\(=4\) and \(y = 6\), \(w =\)\(6 \over 4\)\(=\)\(3 \over 2\)'),
     Question(
-        r'If \(4r + 7s = 23\) and \(r − 2s = 17\) then \(3r + 3s =\)',
+        r'If \(4r + 7s = 23\) and \(r − 2s = 17\) then \(3r + 3s =\)...',
         'B',
         null,
         r'\(8\)',
@@ -103,7 +103,7 @@ class MathBank {
         r'\(40\)',
         r'Add corresponding sides of the given equation: \(5r + 5s = 40\). Dividing each member of \(5r + 5s = 40\) by \(5\) gives \(r + s = 8\). Since \(r + s = 8\), then \(3r + 3s = 3(8) = 24\)'),
     Question(
-        r'If \(p - q \over 2\)\(= 3\) and \(rp - rq =12\), then \(r =\)',
+        r'If \(p - q \over 2\)\(= 3\) and \(rp - rq =12\), then \(r =\)...',
         'C',
         null,
         r'\(-1\)',
