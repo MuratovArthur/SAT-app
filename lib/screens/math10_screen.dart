@@ -120,9 +120,15 @@ class _FunctionsMathPageState extends State<FunctionsMathPage> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: Image(
-                        image: AssetImage(mathBrain
-                            .introQuestionBank[questionNumber].imagePath)),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxHeight: 220,
+                      ),
+                      child: Image(
+                          image: AssetImage(mathBrain
+                              .introQuestionBank[questionNumber].imagePath),
+                          fit: BoxFit.cover),
+                    ),
                   ),
                   Expanded(
                     child: TeXView(
@@ -459,28 +465,30 @@ class _ReviewPageState extends State<ReviewPage> {
                 flex: 5,
                 child: Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: Center(
-                    child: TeXView(
-                      child: TeXViewDocument(mathBrain
-                          .introQuestionBank[questionNumber].questionText),
-                      style: TeXViewStyle(
-                        textAlign: TeXViewTextAlign.Center,
-                        // height: 1,
-                        //fontSize: 22,
-                        //fontFamily: 'Cairo',
-                        // fontWeight: FontWeight.bold
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxHeight: 220,
+                          ),
+                          child: Image(
+                              image: AssetImage(mathBrain
+                                  .introQuestionBank[questionNumber].imagePath),
+                              fit: BoxFit.cover),
+                        ),
                       ),
-                    ),
-                    // child: Text(
-                    //   mathBrain
-                    //       .introQuestionBank[questionNumber].questionText,
-                    //   textAlign: TextAlign.center,
-                    //   style: TextStyle(
-                    //       height: 1.2,
-                    //       fontSize: 18,
-                    //       fontFamily: 'Cairo',
-                    //       fontWeight: FontWeight.bold),
-                    // ),
+                      Expanded(
+                        child: TeXView(
+                          child: TeXViewDocument(mathBrain
+                              .introQuestionBank[questionNumber].questionText),
+                          style: TeXViewStyle(
+                            textAlign: TeXViewTextAlign.Center,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
